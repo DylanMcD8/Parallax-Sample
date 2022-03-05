@@ -38,6 +38,28 @@ class ViewController: UIViewController {
 
 }
 
+class RectanglesViewController: UIViewController {
+    
+    @IBOutlet weak var red: UIView!
+    @IBOutlet weak var orange: UIView!
+    @IBOutlet weak var yellow: UIView!
+    @IBOutlet weak var green: UIView!
+    @IBOutlet weak var teal: UIView!
+    @IBOutlet weak var cyan: UIView!
+    @IBOutlet weak var blue: UIView!
+    @IBOutlet weak var indigo: UIView!
+    
+    override func viewDidLoad() {
+        addParallaxToView(view: red, amount: 25)
+        addParallaxToView(view: orange, amount: 25)
+        addParallaxToView(view: yellow, amount: 25)
+        addParallaxToView(view: green, amount: 25)
+        addParallaxToView(view: teal, amount: 25)
+        addParallaxToView(view: cyan, amount: 25)
+        addParallaxToView(view: blue, amount: 25)
+        addParallaxToView(view: indigo, amount: 25)
+    }
+}
 
 
 func addParallaxToView(view: UIView, amount: Float) {
@@ -61,9 +83,22 @@ func addParallaxToView(view: UIView, amount: Float) {
             view.removeMotionEffect(group)
         }
     }
+    
+    addShadowParallaxToView(view: view, amount: amount)
 }
 
 func addShadowParallaxToView(view: UIView, amount: Float) {
+    
+    view.layer.masksToBounds = false
+    view.layer.cornerRadius = 30
+    view.layer.cornerCurve = .continuous
+    view.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
+    view.layer.shadowColor = UIColor.black.cgColor
+    view.layer.shadowOffset = CGSize(width: 0, height: 1)
+    view.layer.shadowRadius = 15
+    view.layer.shadowOpacity = 0.7
+    
+    
     let horizontal = UIInterpolatingMotionEffect(keyPath: "layer.shadowOffset.width", type: .tiltAlongHorizontalAxis)
     horizontal.minimumRelativeValue = amount
     horizontal.maximumRelativeValue = -amount
