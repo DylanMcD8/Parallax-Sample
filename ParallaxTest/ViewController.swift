@@ -11,6 +11,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var mainImage: UIImageView!
+    @IBOutlet weak var wallpaperImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -30,6 +31,7 @@ class ViewController: UIViewController {
         
         addParallaxToView(view: mainView, amount: 40)
         addShadowParallaxToView(view: mainView, amount: 40)
+        addReverseParallaxToView(view: wallpaperImage, amount: 40)
     }
 
 
@@ -81,3 +83,22 @@ func addShadowParallaxToView(view: UIView, amount: Float) {
     }
 }
 
+func addReverseParallaxToView(view: UIView, amount: Float) {
+    let horizontal = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
+    horizontal.minimumRelativeValue = amount
+    horizontal.maximumRelativeValue = -amount
+
+    let vertical = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
+    vertical.minimumRelativeValue = amount
+    vertical.maximumRelativeValue = -amount
+
+    let group = UIMotionEffectGroup()
+    group.motionEffects = [horizontal, vertical]
+    view.addMotionEffect(group)
+    
+    NotificationCenter.default.addObserver(forName:  Notification.Name(rawValue: "UpdateParallax") , object: nil, queue: .main) { notification in
+        UIView.animate(withDuration: 0.25) {
+            view.removeMotionEffect(group)
+        }
+    }
+}

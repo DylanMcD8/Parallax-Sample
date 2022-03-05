@@ -16,10 +16,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Peek Performance Wallpaper iPad ALT" translatesAutoresizingMaskIntoConstraints="NO" id="agQ-Dv-UYn">
+                                <rect key="frame" x="-40" y="-40" width="494" height="976"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x6S-Ac-6S0">
                                 <rect key="frame" x="30" y="194" width="354" height="518"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Peek Performance Wallpaper iPad ALT" translatesAutoresizingMaskIntoConstraints="NO" id="UL3-Ja-vPB">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RUGI_Mac" translatesAutoresizingMaskIntoConstraints="NO" id="UL3-Ja-vPB">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="518"/>
                                     </imageView>
                                 </subviews>
@@ -36,14 +39,19 @@
                         <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="x6S-Ac-6S0" secondAttribute="bottom" constant="150" id="I8h-Ib-I75"/>
+                            <constraint firstItem="agQ-Dv-UYn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="-40" id="RF2-Qo-y7d"/>
+                            <constraint firstAttribute="bottom" secondItem="agQ-Dv-UYn" secondAttribute="bottom" constant="-40" id="Rrk-os-NUs"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="x6S-Ac-6S0" secondAttribute="trailing" constant="30" id="bGK-D3-2R1"/>
                             <constraint firstItem="x6S-Ac-6S0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="bWL-9G-bnh"/>
+                            <constraint firstItem="agQ-Dv-UYn" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-40" id="fcR-dV-mZd"/>
                             <constraint firstItem="x6S-Ac-6S0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="oHt-fH-pcE"/>
+                            <constraint firstItem="agQ-Dv-UYn" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="40" id="zx0-wg-rGW"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="mainImage" destination="UL3-Ja-vPB" id="YYS-Wq-ZU3"/>
                         <outlet property="mainView" destination="x6S-Ac-6S0" id="VV9-nQ-ZaS"/>
+                        <outlet property="wallpaperImage" destination="agQ-Dv-UYn" id="uhc-MM-Txu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -52,7 +60,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Peek Performance Wallpaper iPad ALT" width="3456" height="2170"/>
+        <image name="Peek Performance Wallpaper iPad ALT" width="3840" height="2160"/>
+        <image name="RUGI_Mac" width="6016" height="3396"/>
         <systemColor name="secondarySystemGroupedBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
